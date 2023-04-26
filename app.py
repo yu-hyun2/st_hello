@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 st.title('Uber pickups in NYC')
-
+st.subheader('line chart')
 chart_data = pd.DataFrame(
      np.random.randn(20, 3),
      columns=['a', 'b', 'c'])
