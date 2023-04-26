@@ -3,12 +3,6 @@ import pandas as pd
 import numpy as np
 
 st.title('Uber pickups in NYC')
-st.subheader('line chart')
-chart_data = pd.DataFrame(
-     np.random.randn(20, 3),
-     columns=['a', 'b', 'c'])
-
-st.line_chart(chart_data)
 
 DATE_COLUMN = 'date/time'
 DATA_URL = ('https://s3-us-west-2.amazonaws.com/'
@@ -30,6 +24,13 @@ if st.checkbox('Show raw data'):
     st.subheader('Raw data')
     st.write(data)
 
+st.subheader('line chart')
+chart_data = pd.DataFrame(
+     np.random.randn(20, 3),
+     columns=['a', 'b', 'c'])
+
+st.line_chart(chart_data)
+     
 st.subheader('Number of pickups by hour')
 hist_values = np.histogram(data[DATE_COLUMN].dt.hour, bins=24, range=(0,24))[0]
 st.bar_chart(hist_values)
